@@ -3,8 +3,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         event = { "BufReadPost", "BufNewFile" },
-        config = function()
-            require("nvim-treesitter.configs").setup({
+        main = "nvim-treesitter",
+        opts = {
                 ensure_installed = {
                     "bash",
                     "dockerfile",
@@ -31,7 +31,6 @@ return {
                 indent = {
                     enable = true,
                 },
-            })
-        end,
+        },
     },
 }
