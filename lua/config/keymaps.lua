@@ -9,11 +9,14 @@ map("n", "<leader>h", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" }
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 map("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open Mason" })
 map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
 
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+
+map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 map("n", "<leader>-", "<cmd>split<cr>", { desc = "Horizontal split" })
 map("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Vertical split" })
