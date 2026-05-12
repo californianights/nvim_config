@@ -26,3 +26,6 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "<leader>cf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format file" })
+
+map("v", "<leader>at", ":AddGoTags<CR>", { desc = "Add Go struct tags", silent = true })
+map("v", "<leader>rt", ":RemoveGoTags<CR>", { desc = "Remove Go struct tags", silent = true })
