@@ -3,6 +3,7 @@ local M = {}
 local modules = {
     "config.plugins.ui",
     "config.plugins.editor",
+    "config.plugins.ai",
     "config.plugins.search",
     "config.plugins.treesitter",
     "config.plugins.lsp",
