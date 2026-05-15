@@ -2,8 +2,6 @@
 
 Active configuration lives in `lua/config`.
 
-Legacy files from the original repository are still present, but they are not the main place to work anymore. If you want to change behavior, start with the files below.
-
 ## Structure
 
 - `init.lua`: entrypoint.
@@ -35,6 +33,7 @@ Legacy files from the original repository are still present, but they are not th
 - Search with Telescope.
 - Completion with `nvim-cmp` and snippets.
 - Formatting with `conform.nvim`.
+- AI chat / inline features with `copilot.lua` and `codecompanion.nvim`
 
 ## First Start
 
