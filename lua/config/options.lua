@@ -9,7 +9,7 @@ opt.relativenumber = settings.use_relative_number
 opt.numberwidth = 4
 opt.signcolumn = "yes"
 opt.cursorline = true
-opt.scrolloff = 4
+opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.pumheight = 10
 
@@ -18,13 +18,14 @@ opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.expandtab = true
 opt.smartindent = true
+opt.cmdheight = 2
 
 opt.wrap = false
 opt.linebreak = true
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
-opt.mouse = "a"
+opt.mouse = ""
 opt.clipboard = "unnamedplus"
 opt.ignorecase = true
 opt.smartcase = true

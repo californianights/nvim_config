@@ -15,6 +15,17 @@ return {
         opts = {},
     },
     {
+        "Aasim-A/scrollEOF.nvim",
+        event = { "CursorMoved", "WinScrolled" },
+        opts = {},
+    },
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy",
+        priority = 1000,
+        opts = {},
+    },
+    {
         "akinsho/toggleterm.nvim",
         version = "*",
         cmd = { "ToggleTerm", "TermExec" },

@@ -14,6 +14,13 @@ return {
                 end,
                 desc = "Find files",
             },
+	    {
+                "<leader>fw",
+                function()
+                    require("telescope.builtin").grep_string()
+                end,
+                desc = "find by word where cursor is",
+            },
             {
                 "<leader>fg",
                 function()
