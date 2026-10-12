@@ -8,7 +8,9 @@ map("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit Neovim" })
 map("n", "<leader>h", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 map("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open Mason" })
-map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+map("n", "<leader>bd", "<cmd>Bdelete<cr>", { desc = "Delete buffer" })
+map("n", "<leader>bw", "<cmd>Bwipeout<cr>", { desc = "Wipe buffer" })
+
 map("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
 
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
@@ -26,43 +28,11 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "<leader>cf", function()
 	require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format file" })
-map({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "AI actions", silent = true })
-map("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle AI chat", silent = true })
-map("v", "<leader>ac", ":CodeCompanionChat Add<CR>", { desc = "Add to AI chat", silent = true })
-map("n", "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "AI inline", silent = true })
-map("v", "<leader>ai", ":CodeCompanion<CR>", { desc = "AI inline", silent = true })
+-- map({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "AI actions", silent = true })
+-- map("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle AI chat", silent = true })
+-- map("v", "<leader>ac", ":CodeCompanionChat Add<CR>", { desc = "Add to AI chat", silent = true })
+-- map("n", "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "AI inline", silent = true })
+-- map("v", "<leader>ai", ":CodeCompanion<CR>", { desc = "AI inline", silent = true })
 
 map("v", "<leader>at", ":AddGoTags<CR>", { desc = "Add Go struct tags", silent = true })
 map("v", "<leader>rt", ":RemoveGoTags<CR>", { desc = "Remove Go struct tags", silent = true })
-
--- Функция для замены выделенного текста
-local function replace_selection(confirm)
-	local saved_register = vim.fn.getreg('"')
-	-- Копируем выделенный текст
-	vim.cmd([[normal! vgvy]])
-	local selection = vim.fn.getreg('"')
-	-- Экранируем спецсимволы для использования в паттерне
-	local pattern = vim.fn.escape(selection, "\\/.*'$^~[]")
-	-- Запрашиваем текст замены
-	local replacement = vim.fn.input("Replace with: ")
-	-- Формируем команду замены
-	local cmd = "%s/" .. pattern .. "/" .. replacement .. "/g"
-	if confirm then
-		cmd = cmd .. "c" -- 'c' флаг для подтверждения каждого вхождения
-	end
-	-- Выполняем замену
-	vim.cmd(cmd)
-	-- Очищаем подсветку поиска и восстанавливаем регистр
-	vim.o.hlsearch = false
-	vim.fn.setreg('"', saved_register)
-	vim.fn.setreg("/", pattern)
-end
-
--- Мапы для замены выделенного текста
-map("v", "<leader>r", function()
-	replace_selection(false)
-end, { desc = "Replace selection in whole file" })
-
-map("v", "<leader>R", function()
-	replace_selection(true)
-end, { desc = "Replace selection with confirmation" })
