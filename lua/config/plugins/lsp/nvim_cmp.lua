@@ -1,59 +1,5 @@
-local settings = require("config.settings")
-
 return {
-	{
-		"williamboman/mason.nvim",
-		cmd = "Mason",
-		opts = {
-			ui = {
-				border = "rounded",
-			},
-		},
-	},
-	{
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		dependencies = { "williamboman/mason.nvim" },
-		lazy = false,
-		opts = {
-			ensure_installed = {
-				"bash-language-server",
-				"dockerfile-language-server",
-				"gofumpt",
-				"goimports",
-				"gopls",
-				"json-lsp",
-				"lua-language-server",
-				"marksman",
-				"shfmt",
-				"stylua",
-				"taplo",
-				"yaml-language-server",
-				"rust-analyzer",
-				"rustfmt",
-			},
-			auto_update = false,
-			debounce_hours = 24,
-			run_on_start = true,
-			start_delay = 3000,
-		},
-	},
-	{
-		"b0o/schemastore.nvim",
-		lazy = true,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"b0o/schemastore.nvim",
-		},
-		config = function()
-			require("config.lsp").setup()
-		end,
-	},
-	{
+{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
@@ -114,21 +60,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
-		opts = {
-			format_on_save = settings.format_on_save and function(_)
-				return { timeout_ms = 1000, lsp_fallback = true }
-			end or nil,
-			formatters_by_ft = {
-				go = { "goimports", "gofumpt" },
-				lua = { "stylua" },
-				sh = { "shfmt" },
-				solidity = { "forge_fmt" },
-				rust = { "rustfmt" },
-			},
-		},
-	},
+	}
 }

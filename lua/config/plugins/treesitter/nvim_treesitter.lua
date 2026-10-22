@@ -1,5 +1,5 @@
 return {
-	{
+{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
@@ -19,6 +19,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"regex",
+				"rust",
 				"solidity",
 				"sql",
 				"toml",
@@ -34,5 +35,5 @@ return {
 				enable = true,
 			},
 		},
-	},
+	}
 }

@@ -1,5 +1,5 @@
 return {
-    {
+{
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
@@ -56,12 +56,5 @@ return {
                 desc = "Stage hunk",
             },
         },
-    },
-    {
-        "tpope/vim-fugitive",
-        cmd = { "Git", "Gdiffsplit", "Gvdiffsplit", "Gwrite", "Gread" },
-        keys = {
-            { "<leader>gg", "<cmd>Git<cr>", desc = "Git status" },
-        },
-    },
+    }
 }

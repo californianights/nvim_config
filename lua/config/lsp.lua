@@ -80,12 +80,27 @@ M.servers = {
 		settings = {
 			["rust-analyzer"] = {
 				cargo = { allFeatures = true },
-				checkOnSave = {
+				check = {
 					command = "clippy",
 				},
 			},
 		},
 	},
+	pyright = {
+		settings = {
+			pyright = {
+				disableOrganizeImports = false,
+			},
+			python = {
+				analysis = {
+					typeCheckingMode = "basic",
+					autoSearchPaths = true,
+					useLibraryCodeForTypes = true,
+				},
+			},
+		},
+	},
+
 	taplo = {},
 	dockerls = {},
 	bashls = {},

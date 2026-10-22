@@ -1,5 +1,5 @@
 return {
-    {
+{
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
         dependencies = {
@@ -62,5 +62,5 @@ return {
                 winblend = 0,
             },
         },
-    },
+    }
 }

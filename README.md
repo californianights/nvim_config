@@ -11,7 +11,7 @@ Active configuration lives in `lua/config`.
 - `lua/config/autocmds.lua`: generic automation.
 - `lua/config/lsp.lua`: LSP servers, LSP keymaps, diagnostics.
 - `lua/config/plugins/init.lua`: plugin registry that combines all plugin groups.
-- `lua/config/plugins/*.lua`: plugin setup grouped by responsibility.
+- `lua/config/plugins/<category>/<plugin>.lua`: one plugin module per file, grouped by responsibility.
 - `after/ftplugin/*.lua`: filetype-specific editor behavior.
 
 ## Where To Change What
@@ -19,13 +19,14 @@ Active configuration lives in `lua/config`.
 - Change leader key, theme, explorer width, diagnostics, inlay hints: `lua/config/settings.lua`.
 - Change editing defaults like numbers, splits, clipboard, search behavior: `lua/config/options.lua`.
 - Change your personal hotkeys: `lua/config/keymaps.lua`.
-- Add or remove plugins: add or edit a file in `lua/config/plugins`, then include it in `lua/config/plugins/init.lua`.
+- Add or remove plugins: add or edit a plugin module in its category under `lua/config/plugins`, then include it in `lua/config/plugins/init.lua`.
 - Add a new language server: edit `lua/config/lsp.lua`.
 - Add filetype-specific indentation or behavior: create a file in `after/ftplugin`.
 
 ## Included By Default
 
 - Go support with `gopls`, `goimports`, `gofumpt`.
+- Rust support with `rust-analyzer`, Treesitter, and `rustfmt`.
 - YAML, JSON, TOML, Dockerfile, Bash, Markdown support.
 - Tree explorer with `nvim-tree`.
 - File tabs with `bufferline`.
