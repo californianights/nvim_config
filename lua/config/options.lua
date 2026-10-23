@@ -23,8 +23,10 @@ opt.expandtab = true
 opt.smartindent = true
 
 -- Window layout and display
-opt.wrap = false
+opt.wrap = true
 opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "↳ "
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
@@ -56,10 +58,10 @@ opt.undofile = true
 -- Visible whitespace
 opt.list = true
 opt.listchars = {
-    tab = "» ",
-    trail = "·",
-    nbsp = "␣",
+	tab = "» ",
+	trail = "·",
+	nbsp = "␣",
 }
 opt.fillchars = {
-    eob = " ",
+	eob = " ",
 }
